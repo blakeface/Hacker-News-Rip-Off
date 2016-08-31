@@ -8,3 +8,21 @@
   font-size: 10pt;
   text-decoration: none;
 }
+
+.news-item-domain {
+  font-size: 8pt;
+  margin-left: 5px;
+}
+
+.news-item-subtext {
+  font-size: 7pt;
+}
+
+.news-item-subtext > a {
+  color: #828282;
+  text-decoration: none;
+}
+
+.news-item-subtext > a:hover {
+  text-decoration: underline;
+}

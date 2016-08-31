@@ -8,7 +8,9 @@
   },
   "browserify": {
     "transform": [
-      ["reactify"]
+      [
+        "reactify"
+      ]
     ]
   },
   "repository": {
@@ -26,7 +28,8 @@
     "jquery": "^3.1.0",
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
-    "react": "^15.3.1"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "devDependencies": {
     "browserify": "^13.1.0",

@@ -2,46 +2,69 @@
 const $ = require('jquery');
 const React = require('react');
 const moment = require('moment');
-
-const url = require('url')
+const url = require('url');
+const hackerNewsUrl = 'https://news.ycombinator.com';
 
 const NewsItem = React.createClass({displayName: "NewsItem",
   getDomain: function () {
     return url.parse(this.props.item.url).hostname;
   },
+  getTitle: function () {
+    return (
+      React.createElement("div", null, 
+      React.createElement("a", {className: "news-item-title", href: this.props.item.url}, this.props.item.title), 
+      React.createElement("span", {className: "news-item-domain"}, 
+      "(", this.getDomain(), ")"
+      )
+      )
+    );
+  },
+
   getCommentLink: function () {
     let commentText = 'discuss';
     if (this.props.item.kids && this.props.item.kids.length) {
       commentText = this.props.item.kids.length + ' comments';
     }
     return (
-      React.createElement("a", {href: 'https://news.ycombinator.com/item?id=' + this.props.item.id}, commentText)
-    );
-  },
-  getTitle: function () {
-    return (
-      React.createElement("div", null, 
-        React.createElement("a", {className: "news-item-title", href: this.props.item.url}, this.props.item.title), 
-        React.createElement("span", {className: "news-item-domain"}, 
-          "(", this.getDomain(), ")"
-        )
-      )
+      React.createElement("a", {href: hackerNewsUrl + '/item?id=' + this.props.item.id}, commentText)
     );
   },
   getSubText: function () {
     return (
       React.createElement("div", {className: "news-item-subtext"}, 
         this.props.item.score, 
-        "points by ", React.createElement("a", {href: 'https://news.ycombinator.com/user?id=' + this.props.item.by}, this.props.item.by), 
+        "points by ", React.createElement("a", {href: hackerNewsUrl + '/user?id=' + this.props.item.by}, this.props.item.by), 
         moment.utc(this.props.item.time * 1000).fromNow(), " | ", this.getCommentLink()
       )
-    )
+    );
   },
+
+  getRank: function () {
+    return (
+      React.createElement("div", {className: "news-item-rank"}, 
+        this.props.rank, "." 
+      )
+    );
+  },
+  getVote: function () {
+    return (
+      React.createElement("div", {className: "news-item-vote"}, 
+        React.createElement("a", {href: hackerNewsUrl + '/vote?for=' + this.props.item.id + '&dir=up&whence=news'}, 
+          React.createElement("img", {src: "../img/arrow.gif", width: "10"})
+        )
+      )
+    );
+  },
+
   render: function () {
     return (
       React.createElement("div", {className: "news-item"}, 
-        this.getTitle(), 
-        this.getSubText()
+        this.getRank(), 
+        this.getVote(), 
+        React.createElement("div", {className: "news-item-itemText"}, 
+          this.getTitle(), 
+          this.getSubText()
+        )
       )
     );
   },

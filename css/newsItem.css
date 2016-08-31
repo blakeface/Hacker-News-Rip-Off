@@ -1,6 +1,8 @@
 .news-item {
   color: #828282;
   margin-top: 5px;
+  align-items: baseline;
+  display: flex;
 }
 
 .news-item-title {
@@ -25,4 +27,19 @@
 
 .news-item-subtext > a:hover {
   text-decoration: underline;
+}
+
+.news-item-itemText {
+  flex-grow: 1;
+}
+
+.news-item-rank {
+  flex-basis: 25px;
+  font-size: 10pt;
+  text-align: right;
+}
+
+.news-item-vote {
+  flex-basis: 15px;
+  text-align: center;
 }

@@ -1,0 +1,36 @@
+{
+  "name": "hacker-news",
+  "version": "1.0.0",
+  "description": "Roughly follows [MKing's React-HN](https://github.com/mking/react-hn)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      ["reactify"]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blakeface/Hacker-News-Rip-Off.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blakeface/Hacker-News-Rip-Off/issues"
+  },
+  "homepage": "https://github.com/blakeface/Hacker-News-Rip-Off#readme",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
+    "moment": "^2.14.1",
+    "react": "^15.3.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "reactify": "^1.1.1",
+    "watchify": "^3.7.0"
+  }
+}

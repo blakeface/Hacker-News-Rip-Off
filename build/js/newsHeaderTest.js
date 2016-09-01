@@ -63,13 +63,21 @@ const NewsHeader = React.createClass({displayName: "NewsHeader",
       )
     )
   },
+  getLogin: function () {
+    return (
+      React.createElement("div", {className: "news-header-login"}, 
+        React.createElement("a", {className: "news-header-text", href: hackerNewsUrl + '/login?whence=news'}, "Login")
+      )
+    );
+  },
 
   render: function () {
     return (
       React.createElement("div", {className: "news-header"}, 
         this.getLogo(), 
         this.getTitle(), 
-        this.getNav()
+        this.getNav(), 
+        this.getLogin()
       )
     );
   },

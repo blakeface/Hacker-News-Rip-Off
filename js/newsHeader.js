@@ -62,6 +62,13 @@ const NewsHeader = React.createClass({
       </div>
     )
   },
+  getLogin: function () {
+    return (
+      <div className='news-header-login'>
+        <a className='news-header-text' href={hackerNewsUrl + '/login?whence=news'}>Login</a>
+      </div>
+    );
+  },
 
   render: function () {
     return (
@@ -69,6 +76,7 @@ const NewsHeader = React.createClass({
         {this.getLogo()}
         {this.getTitle()}
         {this.getNav()}
+        {this.getLogin()}
       </div>
     );
   },

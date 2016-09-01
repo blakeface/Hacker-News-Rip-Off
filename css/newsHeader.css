@@ -31,3 +31,7 @@
 .news-header-navLink:not(:first-child)::before {
   content: ' | ';
 }
+
+.news-header-login {
+  margin-right: 5px;
+}

@@ -8,7 +8,7 @@ class NewsHeader extends Component {
   getLogo () {
     return (
       <div className='news-header-logo'>
-        <a href={hackerNewsUrl}><img src='../img/logo.gif' /></a>
+        <a href={hackerNewsUrl}><img src='src/img/logo.gif' /></a>
       </div>
     );
   }

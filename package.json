@@ -4,27 +4,21 @@
   "description": "Roughly follows [MKing's React-HN](https://github.com/mking/react-hn)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "reactify"
-      ]
-    ]
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blakeface/Hacker-News-Rip-Off.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Blake Face!!!!",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/blakeface/Hacker-News-Rip-Off/issues"
   },
   "homepage": "https://github.com/blakeface/Hacker-News-Rip-Off#readme",
   "dependencies": {
+    "babel-preset-stage-1": "^6.13.0",
     "jquery": "^3.1.0",
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
@@ -32,8 +26,12 @@
     "react-dom": "^15.3.1"
   },
   "devDependencies": {
-    "browserify": "^13.1.0",
-    "reactify": "^1.1.1",
-    "watchify": "^3.7.0"
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "jquery": "^3.1.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   }
 }

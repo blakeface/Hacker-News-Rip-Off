@@ -5,6 +5,13 @@ const NewsHeader = require('./newsHeader');
 const NewsItem = require('./newsItem');
 
 const NewsList = React.createClass({
+  getMore: function () {
+    return (
+      <div className='news-list-more'>
+        <a className='news-list-more-link' href='https://news.ycombinator.com/news?p=2'>More</a>
+      </div>
+    );
+  },
   render: function () {
     return (
       <div className='news-list'>
@@ -16,6 +23,7 @@ const NewsList = React.createClass({
               rank={i + 1} />;
           }.bind(this)).value()}
         </div>
+        {this.getMore()}
       </div>
     );
   }

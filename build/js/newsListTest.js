@@ -167,6 +167,13 @@ const NewsHeader = require('./newsHeader');
 const NewsItem = require('./newsItem');
 
 const NewsList = React.createClass({displayName: "NewsList",
+  getMore: function () {
+    return (
+      React.createElement("div", {className: "news-list-more"}, 
+        React.createElement("a", {className: "news-list-more-link", href: "https://news.ycombinator.com/news?p=2"}, "More")
+      )
+    );
+  },
   render: function () {
     return (
       React.createElement("div", {className: "news-list"}, 
@@ -177,7 +184,8 @@ const NewsList = React.createClass({displayName: "NewsList",
               item: item, 
               rank: i + 1});
           }.bind(this)).value()
-        )
+        ), 
+        this.getMore()
       )
     );
   }

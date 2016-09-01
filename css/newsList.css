@@ -4,3 +4,15 @@
   margin-right: auto;
   width: 85%;
 }
+
+.news-list-more {
+  margin-left: 40px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.news-list-more-link {
+  color: black;
+  font-size: 10pt;
+  text-decoration: none;
+}

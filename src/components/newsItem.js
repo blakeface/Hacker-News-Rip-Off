@@ -13,10 +13,10 @@ class NewsItem extends Component {
   getTitle () {
     return (
       <div>
-      <a className="news-item-title"href={this.props.item.url}>{this.props.item.title}</a>
-      <span className="news-item-domain">
-      ({this.getDomain()})
-      </span>
+        <a className="news-item-title"href={this.props.item.url}>{this.props.item.title}</a>
+        <span className="news-item-domain">
+          ({this.getDomain()})
+        </span>
       </div>
     );
   }
@@ -60,6 +60,7 @@ class NewsItem extends Component {
   render () {
     return (
       <div className='news-item'>
+        <h3>news item</h3>
         {this.getRank()}
         {this.getVote()}
         <div className='news-item-itemText'>

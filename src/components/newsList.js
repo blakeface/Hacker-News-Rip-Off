@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import NewsHeader from './newsHeader';
+import $ from 'jquery';
 import NewsItem from './newsItem';
 
+const url = 'https://hacker-news.firebaseio.com/v0';
+
 class NewsList extends Component {
+
+
   getMore () {
     return (
       <div className='news-list-more'>
@@ -11,20 +15,38 @@ class NewsList extends Component {
       </div>
     );
   }
+
   render () {
-    return (
-      <div className='news-list'>
-        <NewsHeader />
-        <div className='news-list-items'>
-          {_(this.props.items).map(function (item, i) {
-            return <NewsItem key={item.id}
-              item={item}
-              rank={i + 1} />;
-          }.bind(this)).value()}
+    $.ajax({
+      url: `${url}/newstories.json`,
+      dataType: 'json',
+    }).then( (stories) => {
+      const deferred = _(stories.slice(0, 30)).map( (id) => {
+        return $.ajax({
+          url: `${url}/item/${id}.json`,
+          dataType: 'json',
+        })
+      }).value();
+      return $.when.apply($, deferred);
+    }).done( (...args) => {
+      const items = _(args).map(function (arg) {
+        return arg[0];
+      }).value();
+
+      return (
+        <div className='news-list'>
+        <h3>news list!!! render test</h3>
+          <div className='news-list-items'>
+            {_(items).map( (item, i) => {
+              console.log(item);
+              return <NewsItem key={item.id}
+                item={item}
+                rank={i + 1} />;
+            })}
+          </div>
         </div>
-        {this.getMore()}
-      </div>
-    );
+      );
+    })
   }
 }
 

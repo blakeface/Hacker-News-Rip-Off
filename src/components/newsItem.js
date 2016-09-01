@@ -1,14 +1,16 @@
-const $ = require('jquery');
-const React = require('react');
-const moment = require('moment');
-const url = require('url');
+import React, { Component } from 'react';
+import $ from 'jquery';
+import moment from 'moment';
+import url from 'url';
+
 const hackerNewsUrl = 'https://news.ycombinator.com';
 
-const NewsItem = React.createClass({
-  getDomain: function () {
+class NewsItem extends Component {
+  getDomain () {
     return url.parse(this.props.item.url).hostname;
-  },
-  getTitle: function () {
+  }
+
+  getTitle () {
     return (
       <div>
       <a className="news-item-title"href={this.props.item.url}>{this.props.item.title}</a>
@@ -17,9 +19,9 @@ const NewsItem = React.createClass({
       </span>
       </div>
     );
-  },
+  }
 
-  getCommentLink: function () {
+  getCommentLink () {
     let commentText = 'discuss';
     if (this.props.item.kids && this.props.item.kids.length) {
       commentText = this.props.item.kids.length + ' comments';
@@ -27,8 +29,8 @@ const NewsItem = React.createClass({
     return (
       <a href={hackerNewsUrl + '/item?id=' + this.props.item.id}>{commentText}</a>
     );
-  },
-  getSubText: function () {
+  }
+  getSubText () {
     return (
       <div className='news-item-subtext'>
         {this.props.item.score}
@@ -36,16 +38,16 @@ const NewsItem = React.createClass({
         {moment.utc(this.props.item.time * 1000).fromNow()} | {this.getCommentLink()}
       </div>
     );
-  },
+  }
 
-  getRank: function () {
+  getRank () {
     return (
       <div className='news-item-rank'>
-        {this.props.rank}. 
+        {this.props.rank}.
       </div>
     );
-  },
-  getVote: function () {
+  }
+  getVote () {
     return (
       <div className='news-item-vote'>
         <a href={hackerNewsUrl + '/vote?for=' + this.props.item.id + '&dir=up&whence=news'}>
@@ -53,9 +55,9 @@ const NewsItem = React.createClass({
         </a>
       </div>
     );
-  },
+  }
 
-  render: function () {
+  render () {
     return (
       <div className='news-item'>
         {this.getRank()}
@@ -66,7 +68,7 @@ const NewsItem = React.createClass({
         </div>
       </div>
     );
-  },
-})
+  }
+}
 
-module.exports = NewsItem;
+export default NewsItem;

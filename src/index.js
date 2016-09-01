@@ -1,9 +1,9 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const _ = require('lodash');
-const $ = require('jquery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import _ from 'lodash';
+import $ from 'jquery';
+import NewsList from './components/newsList';
 
-const NewsList = require('./newsList');
 const url = 'https://hacker-news.firebaseio.com/v0/topstories.json';
 
 $.ajax({

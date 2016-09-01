@@ -1,18 +1,18 @@
-const $ = require('jquery');
-const React = require('react');
-const _ = require('lodash');
+import React, { Component } from 'react';
+import $ from 'jquery';
+import _ from 'lodash';
 
 const hackerNewsUrl = 'https://www.ycombinator.com'
 
-const NewsHeader = React.createClass({
-  getLogo: function () {
+class NewsHeader extends Component {
+  getLogo () {
     return (
       <div className='news-header-logo'>
         <a href={hackerNewsUrl}><img src='../img/logo.gif' /></a>
       </div>
     );
-  },
-  getTitle: function () {
+  }
+  getTitle () {
     return (
       <div className='news-header-title'>
         <a className='news-header-text' href={hackerNewsUrl}>
@@ -20,8 +20,8 @@ const NewsHeader = React.createClass({
         </a>
       </div>
     );
-  },
-  getNav: function () {
+  }
+  getNav () {
     const navLinks = [
       {
         name: 'new',
@@ -61,16 +61,16 @@ const NewsHeader = React.createClass({
         }).value()}
       </div>
     )
-  },
-  getLogin: function () {
+  }
+  getLogin () {
     return (
       <div className='news-header-login'>
         <a className='news-header-text' href={hackerNewsUrl + '/login?whence=news'}>Login</a>
       </div>
     );
-  },
+  }
 
-  render: function () {
+  render () {
     return (
       <div className='news-header'>
         {this.getLogo()}
@@ -79,7 +79,7 @@ const NewsHeader = React.createClass({
         {this.getLogin()}
       </div>
     );
-  },
-});
+  }
+};
 
-module.exports = NewsHeader;
+export default NewsHeader;
